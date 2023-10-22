@@ -1,15 +1,17 @@
-import { useState } from "react";
+
+import { Route, Routes } from "react-router-dom";
 import { HomePage, Experience } from "./pages";
 import { AppHeader, AppFooter } from "./shared";
 
 function App() {
-  const [page, setPage] = useState(<HomePage />);
-
   return (
     <div className="flex flex-col items-center justify-center">
       <AppHeader />
-      {page}
-      <Experience/>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/experience" element={<Experience />} />
+      </Routes>
+
       <AppFooter />
     </div>
   );
