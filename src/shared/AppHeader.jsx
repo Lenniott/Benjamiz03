@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiX, FiMenu } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
 
 export function AppHeader() {
   const [menu, setMenu] = useState(0);
@@ -25,37 +26,36 @@ export function AppHeader() {
     };
   }, []);
 
-  const NavMenuItem = ({ label, test }) => (
+  const NavMenuItem = ({ label, link }) => (
     <>
-      <button
-        onClick={() => {
-          setMenu(test);
-        }}
+      <Link
+        to={link}
         aria-label={label}
         className="block text-left text-lg text-primary-dark sm:py-2 p-2 hover:bg-slate-200 rounded-lg duration-500"
       >
         {label}
-      </button>
+      </Link>
       <hr className="border-ternary-light " />
     </>
   );
 
   const NavList = (props) => (
     <>
-      <a
+      <Link
+        to={props.link}
         className="block text-left text-lg font-medium text-primary-dark hover:underline underline-offset-4 sm:mx-4 mb-2 sm:py-2 duration-500"
         aria-label={props.label}
       >
         {props.label}
-      </a>
+      </Link>
     </>
   );
 
   const navList = [
-    [0, "Home", uuidv4()],
-    [1, "Me", uuidv4()],
-    [2, "Writings", uuidv4()],
-    [3, "Experience", uuidv4()],
+    ["/", "Home", uuidv4()],
+    ["/about", "Me", uuidv4()],
+    ["/works", "Works", uuidv4()],
+    ["/experience", "Experience", uuidv4()],
   ];
 
   return (
@@ -69,11 +69,7 @@ export function AppHeader() {
         <div className="flex max-w-screen-xl mx-auto px-6 justify-between items-center py-2">
           <div className="flex justify-between items-center">
             <div>
-              <a
-                onClick={() => {
-                  setMenu(0);
-                }}
-              >
+              <Link to="/">
                 <div className="flex justify-center items-center gap-2 font-medium text-xs">
                   <div className="grid p-6 bg-primary-dark shadow-sm rounded-lg h-7 w-7 place-content-center">
                     <div className="flex justify-center text-primary-light">
@@ -84,9 +80,8 @@ export function AppHeader() {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
-            <div>{menu}</div>
           </div>
           <div className="sm:hidden" ref={menuRef}>
             <button
@@ -110,7 +105,7 @@ export function AppHeader() {
             >
               {navList.map((item) => (
                 <div key={item[2]}>
-                  <NavMenuItem label={item[1]} test={item[0]} />
+                  <NavMenuItem label={item[1]} link={item[0]} />
                   <hr className="border-slate-100" />
                 </div>
               ))}
@@ -119,7 +114,7 @@ export function AppHeader() {
           <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
             {navList.map((item) => (
               <div key={item[2]}>
-                <NavList label={item[1]} />
+                <NavList label={item[1]} link={item[0]}/>
               </div>
             ))}
           </div>
