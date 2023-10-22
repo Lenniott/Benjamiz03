@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import {  FiBriefcase } from "react-icons/fi";
-import homePageImage from "../../public/images/homePage";
+import { FiBriefcase } from "react-icons/fi";
+import homePageImage from "../images/homePage";
 
-function AppBanner() {
+export function AppBanner() {
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -31,7 +31,7 @@ function AppBanner() {
             duration: 0.9,
             delay: 0.2,
           }}
-          className="font-general-medium mt-2 text-lg md:text-lg lg:text-xl xl:text-xl text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
+          className="font-general-medium mt-2 text-lg md:text-lg lg:text-xl xl:text-xl text-center sm:text-left leading-normal text-slate-700"
         >
           Product designer
         </motion.p>
@@ -43,7 +43,7 @@ function AppBanner() {
             duration: 0.9,
             delay: 0.2,
           }}
-          className="font-light mt-0 text-md md:text-md lg:text-md xl:text-md text-center sm:text-left leading-normal text-gray-500 dark:text-gray-200"
+          className="font-light mt-0 text-md md:text-md lg:text-md xl:text-md text-center sm:text-left leading-normal text-slate-700"
         >
           Creating value through simple and professional design
         </motion.p>
@@ -80,12 +80,9 @@ function AppBanner() {
             alt="Product designer"
             width={700}
             height={700}
-            quality={100}
           />
         </div>
       </motion.div>
     </motion.section>
   );
 }
-
-export default AppBanner;
