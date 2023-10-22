@@ -1,4 +1,4 @@
-function Button({ title, download, link, label, iconStart, iconEnd, click }) {
+export function Button({ title, download, link, label, iconStart, iconEnd, click }) {
   return (
     <div className="justify-center items-center">
       <button
@@ -18,4 +18,3 @@ function Button({ title, download, link, label, iconStart, iconEnd, click }) {
   );
 }
 
-export default Button;

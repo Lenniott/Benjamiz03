@@ -4,6 +4,7 @@ import { FiX, FiMenu } from "react-icons/fi";
 import { v4 as uuidv4 } from "uuid";
 
 export function AppHeader() {
+  const [menu, setMenu] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
 
@@ -24,15 +25,17 @@ export function AppHeader() {
     };
   }, []);
 
-  const NavMenuItem = (props) => (
+  const NavMenuItem = ({ label, test }) => (
     <>
-      <a
-        onClick={toggleMenu}
-        aria-label={props.label}
+      <button
+        onClick={() => {
+          setMenu(test);
+        }}
+        aria-label={label}
         className="block text-left text-lg text-primary-dark sm:py-2 p-2 hover:bg-slate-200 rounded-lg duration-500"
       >
-        {props.label}
-      </a>
+        {label}
+      </button>
       <hr className="border-ternary-light " />
     </>
   );
@@ -49,10 +52,10 @@ export function AppHeader() {
   );
 
   const navList = [
-    ["/", "Home", uuidv4()],
-    ["/about", "Me", uuidv4()],
-    ["/projects", "Writings", uuidv4()],
-    ["/cv", "Experience", uuidv4()],
+    [0, "Home", uuidv4()],
+    [1, "Me", uuidv4()],
+    [2, "Writings", uuidv4()],
+    [3, "Experience", uuidv4()],
   ];
 
   return (
@@ -66,7 +69,11 @@ export function AppHeader() {
         <div className="flex max-w-screen-xl mx-auto px-6 justify-between items-center py-2">
           <div className="flex justify-between items-center">
             <div>
-              <a>
+              <a
+                onClick={() => {
+                  setMenu(0);
+                }}
+              >
                 <div className="flex justify-center items-center gap-2 font-medium text-xs">
                   <div className="grid p-6 bg-primary-dark shadow-sm rounded-lg h-7 w-7 place-content-center">
                     <div className="flex justify-center text-primary-light">
@@ -79,6 +86,7 @@ export function AppHeader() {
                 </div>
               </a>
             </div>
+            <div>{menu}</div>
           </div>
           <div className="sm:hidden" ref={menuRef}>
             <button
@@ -102,7 +110,7 @@ export function AppHeader() {
             >
               {navList.map((item) => (
                 <div key={item[2]}>
-                  <NavMenuItem label={item[1]} link={item[0]} />
+                  <NavMenuItem label={item[1]} test={item[0]} />
                   <hr className="border-slate-100" />
                 </div>
               ))}
@@ -111,7 +119,7 @@ export function AppHeader() {
           <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
             {navList.map((item) => (
               <div key={item[2]}>
-                <NavList label={item[1]} link={item[0]} />
+                <NavList label={item[1]} />
               </div>
             ))}
           </div>

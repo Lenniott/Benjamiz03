@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HomePage } from "./pages";
+import { HomePage, Experience } from "./pages";
 import { AppHeader, AppFooter } from "./shared";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
     <div className="flex flex-col items-center justify-center">
       <AppHeader />
       {page}
+      <Experience/>
       <AppFooter />
     </div>
   );
