@@ -1,3 +1,4 @@
+import { AppFooterCopyright } from './shared'
 import { useState } from 'react'
 
 
