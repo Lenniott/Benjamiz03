@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FiChevronUp } from 'react-icons/fi';
 
-function useScrollToTop({className}) {
+export function UseScrollToTop({className}) {
 	const [showScroll, setShowScroll] = useState(false);
 
 	useEffect(() => {
@@ -49,4 +49,4 @@ function useScrollToTop({className}) {
 	);
 }
 
-export default useScrollToTop;
+
