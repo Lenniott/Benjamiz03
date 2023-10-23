@@ -69,7 +69,7 @@ export function AppHeader() {
         <div className="flex max-w-screen-xl mx-auto px-6 justify-between items-center py-2">
           <div className="flex justify-between items-center">
             <div>
-              <Link to="/">
+              <Link to="/" >
                 <div className="flex justify-center items-center gap-2 font-medium text-xs">
                   <div className="grid p-6 bg-primary-dark shadow-sm rounded-lg h-7 w-7 place-content-center">
                     <div className="flex justify-center text-primary-light">
@@ -104,7 +104,7 @@ export function AppHeader() {
               }
             >
               {navList.map((item) => (
-                <div key={item[2]}>
+                <div key={item[2]} onClick={toggleMenu}>
                   <NavMenuItem label={item[1]} link={item[0]} />
                   <hr className="border-slate-100" />
                 </div>
@@ -113,8 +113,8 @@ export function AppHeader() {
           </div>
           <div className="font-general-medium hidden m-0 sm:ml-4 mt-5 sm:mt-3 sm:flex p-5 sm:p-0 justify-center items-center shadow-lg sm:shadow-none">
             {navList.map((item) => (
-              <div key={item[2]}>
-                <NavList label={item[1]} link={item[0]}/>
+              <div key={item[2]} >
+                <NavList label={item[1]} link={item[0]} />
               </div>
             ))}
           </div>
