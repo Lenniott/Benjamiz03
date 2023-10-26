@@ -31,7 +31,7 @@ export function AppBanner() {
             duration: 0.9,
             delay: 0.2,
           }}
-          className="font-general-medium mt-2 text-lg md:text-lg lg:text-xl xl:text-xl text-center sm:text-left leading-normal text-slate-700"
+          className="font-general-medium mt-2 mb-1 text-lg md:text-lg lg:text-xl xl:text-xl text-center sm:text-left leading-normal text-slate-700"
         >
           Product designer
         </motion.p>
@@ -45,7 +45,7 @@ export function AppBanner() {
           }}
           className="font-light mt-0 text-md md:text-md lg:text-md xl:text-md text-center sm:text-left leading-normal text-slate-700"
         >
-          Creating value through simple and professional design
+          Building value through simple design
         </motion.p>
         <motion.div
           initial={{ opacity: 0 }}

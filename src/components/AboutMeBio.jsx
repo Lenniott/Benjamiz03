@@ -1,12 +1,17 @@
 
 import { useState } from "react";
+import {motion} from "framer-motion";
 import { aboutMeData } from "../data/aboutMeData";
 
 
 export function AboutMeBio() {
   const [aboutMe, setAboutMe] = useState(aboutMeData);
   return (
-    <div className="max-w-6xl sm:flex sm:gap-10 mt-10 sm:mt-20">
+    <motion.div       
+    initial={{ opacity: 0, y:-180 }}
+    animate={{ opacity: 1, y:0 }}
+    transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
+    className="max-w-6xl sm:flex sm:gap-10 mt-10 sm:mt-20">
       <div className="font-general-regular text-left">
         {aboutMe.map((bio, index) => (
           <div
@@ -28,7 +33,7 @@ export function AboutMeBio() {
         ))}
       </div>
 
-    </div>
+    </motion.div>
   );
 }
 
