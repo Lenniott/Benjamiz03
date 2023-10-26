@@ -1,27 +1,22 @@
-import { useState } from 'react'
 
+import { Route, Routes } from "react-router-dom";
+import { HomePage, Experience, About } from "./pages";
+import { AppHeader, AppFooter } from "./shared";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="flex flex-col items-center justify-center">
+      <AppHeader />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/works" element={<h1>Works</h1>} />
+      </Routes>
+
+      <AppFooter />
+    </div>
+  );
 }
 
-export default App
+export default App;
