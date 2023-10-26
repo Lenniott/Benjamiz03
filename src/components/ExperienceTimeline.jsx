@@ -1,15 +1,27 @@
 import { experienceData } from "../data/experience";
 import { FiBriefcase, FiArrowUp } from "react-icons/fi";
 import SkillIcons from "../assets/SkillIcons";
+import {motion} from "framer-motion";
 
 const Experience = () => {
   return (
-    <ol className="relative border-l border-gray-300  flex flex-col ">
+    <motion.ol 
+    initial={{ opacity: 0, x:-180 }}
+    animate={{ opacity: 1, x:0 }}
+    transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
+    className="relative border-l border-gray-300  flex flex-col ">
       {experienceData.map((exp, index) => (
-        <li key={exp.id} id="experienceBucket" className="mb-10 ml-10">
+        <li 
+        key={exp.id} 
+        id="experienceBucket" 
+        className="mb-10 ml-10">
           <span className="absolute flex items-center justify-center w-8 h-8 bg-primary-dark rounded-full -left-4 ring-8 ring-primary-light">
             <FiBriefcase className="text-primary-light" />
           </span>
+          <motion.div  
+          initial={{ opacity: 0, x:360 }}
+        animate={{ opacity: 1, x:0 }}
+        transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}>
           <h3 className="flex items-center justify-left mb-1 text-lg font-semibold text-gray-900">
             {exp.title}
           </h3>
@@ -25,12 +37,14 @@ const Experience = () => {
               </li>
             ))}
           </ul>
+          </motion.div>
+
         </li>
       ))}
       <li className="absolute bottom-0 -left-[16px] flex items-center justify-center w-8 h-8 bg-primary-dark rounded-full ring-8 ring-primary-light ">
         <FiArrowUp className="text-primary-light" />
       </li>
-    </ol>
+    </motion.ol>
   );
 };
 
