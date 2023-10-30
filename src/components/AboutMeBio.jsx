@@ -22,7 +22,7 @@ export function AboutMeBio() {
           >
             <img
               src={bio.image}
-              className="h-full transition ease-in-out px-24 md:px-0 order-last md:order-first rounded-lg grayscale hover:grayscale-0 duration-500" 
+              className="w-full h-auto sm:h-full sm:w-auto transition ease-in-out px-24 md:px-0 order-last md:order-first rounded-lg grayscale hover:grayscale-0 duration-500" 
               alt={bio.imageDescription}
             />
             <div className="">
