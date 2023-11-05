@@ -29,9 +29,9 @@ export function MediumGrid(){
   }, []);
   const articles = posts.length ? [posts[0], posts[1], posts[2]] : [];
   return (
-    <div className='flex flex-col items-center gap-8 mt-10'>
-        <h1 className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark">Articles</h1>
-      <div className="flex gap-8 items-center justify-center ">
+    <div className='flex flex-col items-center justify-center gap-8 mt-10'>
+        <h2 className="font-general-medium text-2xl sm:text-4xl mb-1 text-ternary-dark">Articles</h2>
+      <div className="flex flex-wrap gap-8 items-center justify-center">
         {articles.map((post, index) => (
           <motion.div
             key={index}

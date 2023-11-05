@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiBriefcase } from "react-icons/fi";
 import homePageImage from "../images/homePage";
+import { Link } from "react-router-dom";
 
 export function AppBanner() {
   return (
@@ -23,7 +24,7 @@ export function AppBanner() {
         >
           Hi👋🏽, I'm Benjamin
         </motion.h1>
-        <motion.p
+        <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
@@ -34,7 +35,7 @@ export function AppBanner() {
           className="font-general-medium mt-2 mb-1 text-lg md:text-lg lg:text-xl xl:text-xl text-center sm:text-left leading-normal text-slate-700"
         >
           Product designer
-        </motion.p>
+        </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -73,7 +74,8 @@ export function AppBanner() {
         transition={{ ease: "easeInOut", duration: 0.9, delay: 0.2 }}
         className="relative w-full sm:w-2/3 text-right float-right mt-8 sm:mt-0 "
       >
-        <div className=" hover:translate-y-0.5 hover:scale-105 grayscale hover:grayscale-0  duration-500">
+        <div  className="hover:translate-y-0.5 hover:scale-105 grayscale hover:grayscale-0  duration-500 ">
+        <Link to="/about" aria-label="Learn more about me">
           <img
             className="relative rounded-lg"
             src={homePageImage.hero}
@@ -81,6 +83,7 @@ export function AppBanner() {
             width={700}
             height={700}
           />
+        </Link>
         </div>
       </motion.div>
     </motion.section>
