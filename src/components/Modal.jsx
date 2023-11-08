@@ -8,30 +8,37 @@ export function Modal({ image, modal, modalClose }) {
   const imageDivRef = useRef(null);
   const modalRef = useRef(null);
   const [zoom, setZoom] = useState(1);
+  const textBoxRef = useRef(null); // Ref for the text box
+  const [textBoxHeight, setTextBoxHeight] = useState(0); // State to store the text box height
+
   const [control, setControl] = useState(true);
   const [transformOrigin, setTransformOrigin] = useState("center");
   const [flexClasses, setFlexClasses] = useState("flex");
-  const [storedScrollPosition, setStoredScrollPosition] = useState(0);
+
 
   useEffect(() => {
     if (modal) {
       // Store the current scroll position and prevent scrolling
-      setStoredScrollPosition(window.scrollY);
       document.body.classList.add("overflow-y-hidden");
 
-      // Scroll to the top after a delay to allow for animation
-      setTimeout(() => {
-        window.scrollTo({ top: 0 });
-      }, 600);
-    } else {
-      // Restore the scroll position and allow scrolling
-      window.scrollTo({ top: storedScrollPosition });
-      document.body.classList.remove("overflow-y-hidden");
     }
-
+  
     // Reset zoom level
     setZoom(1);
+  
+    // Cleanup function to be called when the modal is closed or the component is unmounted
+    return () => {
+      // Restore the scroll position and allow scrolling
+      document.body.classList.remove("overflow-y-hidden");
+    };
   }, [modal]);
+  
+  useEffect(() => {
+    // Measure the height of the text box and update the state
+    if (textBoxRef.current) {
+      setTextBoxHeight(textBoxRef.current.offsetHeight);
+    }
+  }, [modal]); // This effect should run when the modal opens
 
   const handleZoomIn = () => {
     setZoom((prevZoom) => prevZoom + 0.25);
@@ -83,7 +90,7 @@ export function Modal({ image, modal, modalClose }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -180 }} // This line will make the modal animate out with these values
           transition={{ ease: "easeInOut", duration: 0.3 }}
-          className="bg-primary-light fixed top-0 left-0 w-screen h-screen z-50 opacity-95 py-8 duration-500"
+          className="bg-primary-light fixed top-0 left-0 w-screen h-screen z-50  py-8 duration-500"
         >
           <div className="relative">
             <div className="pb-4 px-4 flex items-start justify-end ">
@@ -91,10 +98,10 @@ export function Modal({ image, modal, modalClose }) {
                 <FiXCircle className="text-4xl text-slate-500 hover:text-primary-dark" />
               </button>
             </div>
-
             <div
               ref={bodyDivRef}
-              className={`overflow-scroll ${flexClasses} h-[calc(100vh-230px)]`}
+              className={`overflow-scroll ${flexClasses}`}
+              style={{ height: `calc(100vh - ${parseInt(textBoxHeight)+80}px)` }} // Use inline style for dynamic height}
             >
               <div
                 ref={imageDivRef}
@@ -105,31 +112,20 @@ export function Modal({ image, modal, modalClose }) {
                 }}
               >
                 <img
-                  src={image?.src || ""}
+                  src={image?.image || ""}
                   alt={image?.alt || ""}
-                  height={image?.height || ""}
-                  width={image?.width || ""}
                   className="w-full h-auto xs:w-auto xs:h-full transition-transform duration-300 transform-gpu"
                 />
               </div>
             </div>
 
-            <div className="text-primary-dark text-center my-4 w-full fixed -bottom-4 left-0 bg-primary-light border-t border-slate-300">
-              <div>
-                <div
-                  onMouseEnter={() => setControl(false)}
-                  onMouseLeave={() => setControl(true)}
-                >
-                  {control ? (
-                    <p className="text-primary-dark text-center font-xs px-8 z-20 my-4">
-                      view description
+            <div ref={textBoxRef} className="text-primary-dark text-center my-4 w-full fixed -bottom-4 left-0 bg-primary-light border-t border-slate-300">
+                <div>
+                    <p className="text-primary-dark text-center px-8 z-20 my-4 mx-auto max-w-4xl">
+                      {image?.text || ""}
                     </p>
-                  ) : (
-                    <p className="text-primary-dark text-center px-8 z-20 my-4">
-                      {image?.alt || ""}
-                    </p>
-                  )}
                 </div>
+
                 <div className="flex items-center w-full justify-center gap-4 mb-4">
                   <Button
                     iconStart={<FiZoomIn />}
@@ -142,7 +138,8 @@ export function Modal({ image, modal, modalClose }) {
                     click={handleZoomOut}
                   />
                 </div>
-              </div>
+
+              
             </div>
           </div>
         </motion.div>

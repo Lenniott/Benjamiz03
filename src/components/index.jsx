@@ -3,3 +3,4 @@ export { Modal } from "./Modal";
 export { ExperienceTimeline } from "./ExperienceTimeline";
 export {AboutMeBio} from "./AboutMeBio";
 export {MediumGrid} from "./Medium";
+export {CardToListComponent} from "./CardToList";

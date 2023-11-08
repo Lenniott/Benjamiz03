@@ -6,7 +6,7 @@ export const aboutMeData = [
     title: "👤 About me",
     image: aboutMeImages.point,
     imageDescription: "Point",
-    bio: "I'm Benjamin, a problem solver who loves a challenge. I excel at simplifying complex issues and taking the initiative to fix what's broken. I value direct communication and factual reasoning, and I'm committed to personal growth. Outside work I enjoy bouldering, I am a singer-songwriter and enjoy writing.",
+    bio: "I'm Benjamin, a problem solver who loves a challenge. I excel at simplifying complex problems and taking the initiative to fix what's broken. I value direct communication and factual reasoning, and I'm committed to personal growth. Outside work, I enjoy bouldering, am a singer-songwriter, and enjoy creative writing.",
   },
   {
     id: uuidv4(),
@@ -20,20 +20,20 @@ export const aboutMeData = [
     title: "👨‍💻 Professional Me",
     image: aboutMeImages.proMe,
     imageDescription: "Professional Me",
-    bio: "I champion agile and hypothesis driven ways of working, advocating for full team involvment throughout discovery and development. My design approach is simple 'collect, assess, deliver'. I continuously work with my team to balance the prioritistion of user needs and business goals.",
+    bio: "I champion hypothesis-driven ways of working; I believe a team that learns together grows together. My design cycle approach is simple: 'collect information, assess next steps, deliver iterations'. I continually work with my team to balance the prioritisation of user needs, technical limitations, and business goals.",
   },
   {
     id: uuidv4(),
     title: "🔍 Curious me",
     image: aboutMeImages.thoughts,
     imageDescription: "Thoughts",
-    bio: "I'm naturally curious, and always eager to dig deeper. I am continually working towards making the fuzzy focused through investigation, questions and validating work often with other stake holders. I can not simplying do beacue I am told to, the why and the outcome is extremely important to me."
+    bio: "I'm naturally curious and always eager to dig deeper. I am continually working towards clarifying ambiguities through investigation, asking questions, and frequently validating work with other stakeholders. I cannot simply act because I am told to; understanding the 'why' and the expected outcome is extremely important to me"
   },
   {
     id: uuidv4(),
     title: "🎯 Why Me?",
     image: aboutMeImages.cliff,
     imageDescription: "Cliff",
-    bio:"I'm passionate about product development and deeply committed to refining the principles that guide how my team and I build products. I try and improves the way I work removing inefficiencies, I challenge the status quo, I love a tough debate and embrace the struggle."
+    bio:"I am passionate about product development and deeply committed to refining the principles that guide the way the team and I build products. I strive to improve our processes by removing inefficiencies, challenging the status quo, engaging in rigorous debate, and embracing the inherent struggles."
   },
 ];

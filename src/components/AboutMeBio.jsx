@@ -2,11 +2,17 @@
 import { useState } from "react";
 import {motion} from "framer-motion";
 import { aboutMeData } from "../data/aboutMeData";
-
+import { Modal } from "./Modal";
 
 export function AboutMeBio() {
   const [aboutMe, setAboutMe] = useState(aboutMeData);
+  const [modal, setModal] = useState({ open: false, image: {image:"",alt:"",text:""} });
+
   return (
+    <>
+    {modal.open && (
+      <Modal image={modal.image} modal={modal.open} modalClose={() => setModal({ open: false, image: {image:"",alt:"",text:""} })} />
+    )}
     <motion.div       
     initial={{ opacity: 0, y:-180 }}
     animate={{ opacity: 1, y:0 }}
@@ -22,8 +28,9 @@ export function AboutMeBio() {
           >
             <img
               src={bio.image}
-              className="w-full h-auto sm:h-full sm:w-auto transition ease-in-out px-24 md:px-0 order-last md:order-first rounded-lg grayscale hover:grayscale-0 duration-500" 
+              className="w-full h-auto sm:h-full sm:w-auto transition ease-in-out px-24 md:px-0 order-last md:order-first rounded-lg hover:translate-y-0.5 hover:scale-105 grayscale hover:grayscale-0  duration-500 " 
               alt={bio.imageDescription}
+              onClick={() => setModal({ open: true, image: {image:bio.image,alt:bio.imageDescription,text:bio.bio} })}
             />
             <div className="">
               <h3 className="text-xl font-semibold pb-4">{bio.title}</h3>
@@ -34,6 +41,7 @@ export function AboutMeBio() {
       </div>
 
     </motion.div>
+    </>
   );
 }
 
