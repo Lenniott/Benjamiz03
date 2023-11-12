@@ -54,7 +54,7 @@ export function AppHeader() {
   const navList = [
     ["/", "Home", uuidv4()],
     ["/about", "Me", uuidv4()],
-    ["/works", "Works", uuidv4()],
+   // ["/works", "Works", uuidv4()],
     ["/experience", "Experience", uuidv4()],
   ];
 

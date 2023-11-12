@@ -58,14 +58,14 @@ export function AppBanner() {
           }}
           className="flex justify-center sm:block"
         >
-          <a
-            href="../files/benjamizCVdetailed.pdf"
+          <Link
+            to="/experience"
             className="font-general-medium flex justify-center items-center w-36 sm:w-48 mt-12 mb-6 sm:mb-0 text-lg py-2.5 sm:py-3 shadow-lg rounded-lg bg-ternary-light text-primary-dark focus:ring-1 focus:ring-primary-dark hover:bg-primary-dark hover:text-primary-light  hover:translate-y-0.5 hover:scale-105 duration-500"
             aria-label="Download Resume"
           >
             <FiBriefcase className="ml-0 sm:ml-1 mr-2 sm:mr-3 h-5 w-5 sn:w-6 sm:h-6 duration-100"></FiBriefcase>
-            <span className="text-sm sm:text-lg duration-100">View CV</span>
-          </a>
+            <span className="text-sm sm:text-lg duration-100">Work Experience</span>
+          </Link>
         </motion.div>
       </div>
       <motion.div

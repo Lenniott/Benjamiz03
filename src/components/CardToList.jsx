@@ -21,43 +21,42 @@ const extractPublisher = (url) => {
 };
 
 
-export function CardToListComponent({title,items}) {
+export function CardToListComponent({ title, items }) {
   return (
     <div className="container mx-auto p-4">
-      <h4>{title}</h4>
-      <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4 gap-4">
+      <h4 className='text-2xl pb-4'>{title}</h4>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {items.map((item) => (
-           <motion.div
-           key={item.id}
-           className="bg-white p-4 rounded-lg shadow-md w-full h-auto grayscale hover:grayscale-0 hover:shadow-xl hover:translate-y-0.5 hover:scale-105 cursor-pointer bg-secondary-light duration-500"
-           initial={{ opacity: 0 }}
-           animate={{ opacity: 1 }}
-           transition={{
-             ease: "easeInOut",
-             duration: 0.7,
-             delay: 0.15
-           }}
-         >
-          <Link to={item.link} className='flex flex-auto lg:flex-col gap-4 items-center'>
-            <div className="flex justify-center items-center overflow-hidden">
+          <motion.div
+            key={item.id}
+            className="bg-white lg:h-full lg:w-full rounded-lg shadow-md grayscale cursor-pointer bg-secondary-light duration-500 hover:grayscale-0 hover:shadow-xl hover:translate-y-0.5 hover:scale-105"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.7,
+              delay: 0.15
+            }}
+          >
+            <Link to={item.link} className='flex-grow flex flex-row lg:flex-col items-center justify-between'>
+
               {/* Responsive image container */}
-              <div className="w-24 h-24 md:w-32 md:h-32 lg:w-48 lg:h-48 relative">
-                <img src={item.thumbnail} alt={item.title} className="absolute inset-0 w-full h-auto object-cover rounded-md" />
+              <div className="w-auto h-64 lg:w-full lg:h-auto overflow-hidden p-4">
+                <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover rounded-md" style={{ aspectRatio: '1 / 1' }} />
               </div>
-            </div>
 
-            <div className="flex flex-col justify-between flex-grow">
-              <h2 className="text-lg font-semibold">{item.title}</h2>
-              <div className="flex flex-col justify-end items-start mt-2 gap-1 font-general-medium text-sm md:text-md text-ternary-dark">
-                <div className='flex gap-2 items-center'>
-                  <p>{item.author}</p> • <p>{formatDate(item.pubDate)}</p>
+              <div className="flex-grow flex flex-col  justify-between p-4 w-full">
+                <h2 className="text-md lg:text-lg font-semibold flex-grow">{item.title}</h2>
+                <div className="flex-grow flex flex-col items-start mt-2 gap-1 font-general-medium text-sx lg:text-md text-ternary-dark">
+                  <div className='flex gap-2 items-center'>
+                    <p>{item.author}</p> • <p>{formatDate(item.pubDate)}</p>
+                  </div>
+                  <p>Published on <a className="hover:underline underline-offset-2 text-indigo-600 font-semibold" href={`https://${extractPublisher(item.link)}`} target="_blank" rel="noopener noreferrer">{extractPublisher(item.link)}</a></p>
                 </div>
-                <p>Published on <a className="hover:underline underline-offset-2 text-indigo-600 font-semibold" href={`https://${extractPublisher(item.link)}`} target="_blank" rel="noopener noreferrer">{extractPublisher(item.link)}</a></p>
-              </div> 
-            </div>
-          </Link>
-         </motion.div>
+              </div>
 
+            </Link>
+          </motion.div>
         ))}
       </div>
     </div>
