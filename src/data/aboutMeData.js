@@ -6,7 +6,7 @@ export const aboutMeData = [
     title: "👤 About me",
     image: aboutMeImages.point,
     imageDescription: "Point",
-    bio: "I'm Benjamin, a problem solver who loves a challenge. I excel at simplifying complex problems and taking the initiative to fix what's broken. I value direct communication and factual reasoning, and I'm committed to personal growth. Outside work, I enjoy bouldering, am a singer-songwriter, and enjoy creative writing.",
+    bio: "I'm Benjamin, a problem solver who loves a challenge. I excel at simplifying complex problems and taking the initiative to fix what's broken. I value direct communication and factual reasoning, and I'm committed to personal growth. Outside work, I enjoy bouldering, am a singer-songwriter, and enjoy writing.",
   },
   {
     id: uuidv4(),
@@ -20,14 +20,14 @@ export const aboutMeData = [
     title: "👨‍💻 Professional Me",
     image: aboutMeImages.proMe,
     imageDescription: "Professional Me",
-    bio: "I champion hypothesis-driven ways of working; I believe a team that learns together grows together. My design cycle approach is simple: 'collect information, assess next steps, deliver iterations'. I continually work with my team to balance the prioritisation of user needs, technical limitations, and business goals.",
+    bio: "I champion hypothesis-driven ways of working; I believe a team that learns together grows together. My design cycle approach is simple: 'plan visually, validate regularly, and piviot when necessary'. I continually work with my team to balance the prioritisation of user needs, technical limitations, and business goals.",
   },
   {
     id: uuidv4(),
     title: "🔍 Curious me",
     image: aboutMeImages.thoughts,
     imageDescription: "Thoughts",
-    bio: "I'm naturally curious and always eager to dig deeper. I am continually working towards clarifying ambiguities through investigation, asking questions, and frequently validating work with other stakeholders. I cannot simply act because I am told to; understanding the 'why' and the expected outcome is extremely important to me"
+    bio: "I'm naturally curious and always eager to dig deeper. I am continually working towards clarifying ambiguities through investigation, asking questions, and frequently validating work with other stakeholders. I cannot simply act because I am told to; understanding the 'why' and the expected outcome is extremely important to me."
   },
   {
     id: uuidv4(),
